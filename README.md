@@ -52,3 +52,13 @@ Prepare a brief presentation or demo to showcase your project, highlighting your
 
 Consider adding more features or complexity to the project, such as implementing advanced data analytics, predictive modeling, or connecting to a live data source.
 Completing this project will not only demonstrate your proficiency in Python, SQL, and data analysis but also provide you with a practical portfolio piece that you can showcase when applying for the Data Analyst position at Watkins Wellness or other similar roles.
+
+## Run The Project
+
+### Generate the Databases
+
+Run the following to generate the databases:
+
+```python
+python3 src/db-generate/db-generate.py
+```
