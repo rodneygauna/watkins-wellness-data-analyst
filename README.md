@@ -1,10 +1,10 @@
 # Watkins Wellness - Data Analyst Project
 
-## Project Overview:
+## Project Overview
 
 Create a simulated sales data environment, perform Extract, Transform, Load (ETL) operations on the data, and create interactive dashboards to visualize the insights using Streamlit.
 
-## Project Steps:
+## Project Steps
 
 1. Database Creation:
 
