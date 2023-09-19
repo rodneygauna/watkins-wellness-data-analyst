@@ -29,6 +29,7 @@ def create_db(db_name):
                     customer VARCHAR(50),
                     product VARCHAR(50),
                     date DATE,
+                    quantity INTEGER,
                     amount FLOAT
                     )""")
 
@@ -58,13 +59,13 @@ def insert_data(db_name, num_records):
     # Create a loop to generate data
     for i in range(num_records):
         data.append((fake.company(), fake.word(), fake.date(),
-                    random.randint(100, 5000)))
+                    random.randint(1, 100), random.randint(100, 5000)))
 
     # Insert data into table
     cursor.executemany(
         """
-        INSERT INTO sales (customer, product, date, amount)
-        VALUES (?, ?, ?, ?)
+        INSERT INTO sales (customer, product, date, quantity, amount)
+        VALUES (?, ?, ?, ?, ?)
         """, data)
 
     # Commit changes

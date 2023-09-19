@@ -30,6 +30,7 @@ cursor_warehouse.execute("""CREATE TABLE IF NOT EXISTS warehouse (
                             customer VARCHAR(50),
                             product VARCHAR(50),
                             date DATE,
+                            quantity INTEGER,
                             amount FLOAT
                             )""")
 
@@ -52,7 +53,8 @@ def transform_data(data):
 
     # Create a loop to iterate through the data
     for record in data:
-        transformed_data.append((record[1], record[2], record[3], record[4]))
+        transformed_data.append(
+            (record[1], record[2], record[3], record[4], record[5]))
 
     # Return the transformed data
     return transformed_data
@@ -63,25 +65,28 @@ cursor_warehouse.executemany("""INSERT INTO warehouse (
                                 customer,
                                 product,
                                 date,
+                                quantity,
                                 amount
                                 )
-                                VALUES (?, ?, ?, ?)""",
+                                VALUES (?, ?, ?, ?, ?)""",
                              transform_data(data_sales_10))
 cursor_warehouse.executemany("""INSERT INTO warehouse (
                                 customer,
                                 product,
                                 date,
+                                quantity,
                                 amount
                                 )
-                                VALUES (?, ?, ?, ?)""",
+                                VALUES (?, ?, ?, ?, ?)""",
                              transform_data(data_sales_100))
 cursor_warehouse.executemany("""INSERT INTO warehouse (
                                 customer,
                                 product,
                                 date,
+                                quantity,
                                 amount
                                 )
-                                VALUES (?, ?, ?, ?)""",
+                                VALUES (?, ?, ?, ?, ?)""",
                              transform_data(data_sales_1000))
 
 
