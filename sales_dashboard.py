@@ -37,7 +37,7 @@ if tabs == "Sales Trends":
     # Create a line chart to visualize sales trends
     st.subheader("Sales Trends Over Time")
     fig, ax = plt.subplots()
-    sns.lineplot(data=sales_data, x="sale_date", y="quantity", ax=ax)
+    sns.lineplot(data=sales_data, x="date", y="quantity", ax=ax)
     st.pyplot(fig)
 
 elif tabs == "Product Performance":
@@ -46,7 +46,7 @@ elif tabs == "Product Performance":
 
     # Load data from the data warehouse
     product_data = pd.read_sql_query(
-        "SELECT * FROM Products", conn_data_warehouse)
+        "SELECT * FROM warehouse", conn_data_warehouse)
 
     # Display a table with product data
     st.write("Product Data:")
@@ -55,7 +55,7 @@ elif tabs == "Product Performance":
     # Create a bar chart to visualize product sales
     st.subheader("Product Sales")
     fig, ax = plt.subplots()
-    sns.barplot(data=product_data, x="name", y="price", ax=ax)
+    sns.barplot(data=product_data, x="product", y="amount", ax=ax)
     ax.set_xlabel("Product")
     ax.set_ylabel("Price")
     ax.set_xticklabels(ax.get_xticklabels(), rotation=45,
