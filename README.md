@@ -62,3 +62,11 @@ Run the following to generate the databases:
 ```python
 python3 src/db-generate/db-generate.py
 ```
+
+### Generate the Warehouse
+
+Run the following to generate the warehouse:
+
+```python
+python3 src/db-warehouse/warehouse-generate.py
+```
